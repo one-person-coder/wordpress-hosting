@@ -8,16 +8,27 @@ This guide provides a step-by-step process for setting up a WordPress site on an
 
 ## Table of Contents
 
-1. [Extract WordPress Files](#extract-wordpress-files)
-2. [Set Permissions](#set-permissions)
-3. [Configure Nginx](#configure-nginx)
-4. [Enable the Nginx Site](#enable-the-nginx-site)
-5. [Update WordPress Configuration](#update-wordpress-configuration)
-6. [Reload Services](#reload-services)
+1. [Download WordPress](#download-wordpress)
+2. [Extract WordPress Files](#extract-wordpress-files)
+3. [Set Permissions](#set-permissions)
+4. [Configure Nginx](#configure-nginx)
+5. [Enable the Nginx Site](#enable-the-nginx-site)
+6. [Update WordPress Configuration](#update-wordpress-configuration)
+7. [Reload Services](#reload-services)
 
 ---
 
-## 1. Extract WordPress Files
+## 1. Download WordPress
+
+Download the latest version of WordPress using the following command:
+
+```bash
+wget https://wordpress.org/latest.tar.gz
+```
+
+---
+
+## 2. Extract WordPress Files
 
 Extract the WordPress files into your desired directory using the following command:
 
@@ -27,7 +38,7 @@ tar -xvzf latest.tar.gz -C /specific-path
 
 ---
 
-## 2. Set Permissions
+## 3. Set Permissions
 
 Adjust the ownership and permissions of the WordPress directory to ensure proper functionality:
 
@@ -38,7 +49,7 @@ sudo chmod -R 755 /var/www/site_path
 
 ---
 
-## 3. Configure Nginx
+## 4. Configure Nginx
 
 Edit the Nginx configuration file for your site:
 
@@ -93,7 +104,7 @@ server {
 
 ---
 
-## 4. Enable the Nginx Site
+## 5. Enable the Nginx Site
 
 Enable the site configuration by creating a symbolic link:
 
@@ -115,7 +126,7 @@ sudo systemctl reload nginx
 
 ---
 
-## 5. Update WordPress Configuration
+## 6. Update WordPress Configuration
 
 Edit the `wp-config.php` file in your WordPress installation directory to set up database credentials:
 
@@ -136,7 +147,7 @@ Save and exit.
 
 ---
 
-## 6. Reload Services
+## 7. Reload Services
 
 After completing the configuration, reload the necessary services to ensure everything is working correctly:
 
